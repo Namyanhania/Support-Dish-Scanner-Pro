@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Scanner Pro - Support</title>
+    <style>
+        :root {
+            --primary: #2196F3;
+            --secondary: #1565C0;
+            --accent: #64B5F6;
+            --light: #E3F2FD;
+            --dark: #0D47A1;
+            --success: #4CAF50;
+            --error: #F44336;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+           border: 1px solid #132de9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #01268f, #083bcb);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+		
+		h2 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .support-form {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+        
+        .error {
+            color: var(--error);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        button {
+            background-color: #083bad;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
+        
+        button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .notification.success {
+            background-color: var(--success);
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            .notification {
+                left: 20px;
+                right: 20px;
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>App Support - Dish Scanner Pro</h1>
+        </header>
+        
+        <div class="support-form">
+            <div id="form-container">
+    
+                
+                <form id="support-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                        <div id="name-error" class="error">Please enter your name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Describe your issue or question"></textarea>
+                        <div id="message-error" class="error">Please enter your message</div>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">
+        Message sent successfully! We'll contact you soon.
+    </div>
+
+    <script>
+        document['addEventListener']('DOMContentLoaded',function(){const _0x5002d2=document['getElementById']('support-form'),_0x514ace=document['getElementById']('name'),_0x2bfca6=document['getElementById']('message'),_0x343fc9=document['getElementById']('name-error'),_0x4ea3a1=document['getElementById']('message-error'),_0x4efd22=document['getElementById']('submit-btn'),_0x38d8cf=document['getElementById']('notification');function _0x556715(){let _0x2e85e4=!![];return _0x514ace['value']['trim']()===''?(_0x343fc9['style']['display']='block',_0x514ace['style']['borderColor']='var(--error)',_0x2e85e4=![]):(_0x343fc9['style']['display']='none',_0x514ace['style']['borderColor']='#ddd'),_0x2bfca6['value']['trim']()===''?(_0x4ea3a1['style']['display']='block',_0x2bfca6['style']['borderColor']='var(--error)',_0x2e85e4=![]):(_0x4ea3a1['style']['display']='none',_0x2bfca6['style']['borderColor']='#ddd'),_0x2e85e4;}function _0x1c4d97(){_0x38d8cf['classList']['add']('success'),setTimeout(()=>{_0x38d8cf['classList']['remove']('success');},0x1388);}_0x5002d2['addEventListener']('submit',function(_0x111b29){_0x111b29['preventDefault'](),_0x556715()&&(_0x4efd22['disabled']=!![],_0x4efd22['innerHTML']='Sending\x20<span\x20class=\x22loading\x22></span>',setTimeout(function(){_0x1c4d97(),_0x5002d2['reset'](),_0x4efd22['disabled']=![],_0x4efd22['innerHTML']='Send\x20Message';},0x5dc));}),_0x514ace['addEventListener']('input',function(){_0x514ace['value']['trim']()!==''&&(_0x343fc9['style']['display']='none',_0x514ace['style']['borderColor']='#ddd');}),_0x2bfca6['addEventListener']('input',function(){_0x2bfca6['value']['trim']()!==''&&(_0x4ea3a1['style']['display']='none',_0x2bfca6['style']['borderColor']='#ddd');});});
+    </script>
+</body>
+</html>
